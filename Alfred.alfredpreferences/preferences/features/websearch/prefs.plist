@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>117D5EE0-850E-4D28-887F-EF389ED94132</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>い</string>
+			<key>text</key>
+			<string>Jisho</string>
+			<key>url</key>
+			<string>https://jisho.org/search/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>3C558F58-1E21-4DAB-8F47-5BF2439ED68E</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ii</string>
+			<key>text</key>
+			<string>Jisho</string>
+			<key>url</key>
+			<string>https://jisho.org/search/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
