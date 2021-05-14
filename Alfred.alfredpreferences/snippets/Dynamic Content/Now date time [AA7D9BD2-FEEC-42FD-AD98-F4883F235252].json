@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "{date:yyyy-MM-dd} at {date:HH:mm}",
+    "uid" : "AA7D9BD2-FEEC-42FD-AD98-F4883F235252",
+    "name" : "Now date time",
+    "keyword" : "dtnow"
+  }
+}
