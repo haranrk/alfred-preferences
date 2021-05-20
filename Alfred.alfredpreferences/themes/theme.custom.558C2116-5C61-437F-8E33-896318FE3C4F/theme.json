@@ -41,9 +41,9 @@
       "paddingVertical" : 10
     },
     "window" : {
-      "color" : "#0000008B",
+      "color" : "#0000008C",
       "paddingHorizontal" : 0,
-      "width" : 400,
+      "width" : 521,
       "borderPadding" : 0,
       "borderColor" : "#00000000",
       "blur" : 40,
