@@ -181,6 +181,8 @@ fi</string>
 	<dict>
 		<key>domain</key>
 		<string></string>
+		<key>save_count</key>
+		<string>50</string>
 		<key>voice</key>
 		<string></string>
 	</dict>

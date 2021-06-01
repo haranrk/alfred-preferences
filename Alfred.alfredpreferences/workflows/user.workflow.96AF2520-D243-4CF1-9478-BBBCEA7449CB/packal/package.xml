@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Text Snippets</name>
-  <version>1.2</version>
-  <bundle>tox.textshortcut</bundle>
-  <updated>1441302135</updated>
-  <file>text_snippets_v.1.2.alfredworkflow</file>
-</workflow>

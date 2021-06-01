@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Moment</name>
-  <version>1.0.0</version>
-  <bundle>co.schof.alfred.moment</bundle>
-  <updated>1620419397</updated>
-  <file>moment.alfredworkflow</file>
-</workflow>
