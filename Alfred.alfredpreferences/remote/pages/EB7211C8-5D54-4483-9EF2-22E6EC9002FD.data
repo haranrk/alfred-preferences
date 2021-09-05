@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>gridsize</key>
+	<integer>4</integer>
+	<key>hidelabels</key>
+	<false/>
+	<key>iconid</key>
+	<string>BC823EFE-B2AD-4067-85CF-D09482BD4498</string>
+	<key>iconisuserspecified</key>
+	<true/>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>snippet</key>
+				<string>The current date is {date}
+
+You can also have dates in different formats...
+
+Short: {date:short}
+Medium: {date:medium}
+Long: {date:long}
+Full: {date:full}
+
+The default date format is medium. Alfred uses the date formats specified in macOS 'Language &amp; Region' advanced preferences.</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.clipboardsnippet</string>
+			<key>buttoniconid</key>
+			<string>77031A62-3DD0-4402-AC5A-F045352750AC</string>
+			<key>buttonlabel</key>
+			<string>Dates</string>
+			<key>itemuid</key>
+			<string>0229B7AA-04AB-4379-A30C-2B798A1F4D4D</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>snippet</key>
+				<string>The current time is {time}
+
+You can also have times in different formats...
+
+Short: {time:short}
+Medium: {time:medium}
+Long: {time:long}
+Full: {time:full}
+
+The default time format is short. Alfred uses the time formats specified in macOS 'Language &amp; Region' advanced preferences.</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.clipboardsnippet</string>
+			<key>buttoniconid</key>
+			<string>56F967B6-14EA-4AA3-92F2-4B806F723C53</string>
+			<key>buttonlabel</key>
+			<string>Times</string>
+			<key>itemuid</key>
+			<string>20056AE7-82B8-414E-9C8F-F90A035D6C72</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>snippet</key>
+				<string>The current clipboard contains '{clipboard}'
+
+You can format the clipboard in different ways too:
+
+Lower case: '{clipboard:lowercase}'
+
+Upper case: '{clipboard:uppercase}'
+
+Capital case: '{clipboard:capitals}'
+
+</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.clipboardsnippet</string>
+			<key>buttoniconid</key>
+			<string>4E2A9B5A-2662-473A-80BE-A144BDF82690</string>
+			<key>buttonlabel</key>
+			<string>Clipboard</string>
+			<key>itemuid</key>
+			<string>87A6E845-0114-47DC-A68F-3F58F53C715C</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>snippet</key>
+				<string>Cheers,
+A Wonderful Alfred User
+</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.clipboardsnippet</string>
+			<key>buttoniconid</key>
+			<string>9AFF068C-5EB7-44E4-990D-58761DA7966B</string>
+			<key>buttonlabel</key>
+			<string>Email Signature</string>
+			<key>itemuid</key>
+			<string>809636AD-4253-4EBB-83E0-D10D59822BBC</string>
+		</dict>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+	</array>
+	<key>itemsall</key>
+	<array>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>snippet</key>
+				<string>The current date is {date}
+
+You can also have dates in different formats...
+
+Short: {date:short}
+Medium: {date:medium}
+Long: {date:long}
+Full: {date:full}
+
+The default date format is medium. Alfred uses the date formats specified in macOS 'Language &amp; Region' advanced preferences.</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.clipboardsnippet</string>
+			<key>buttoniconid</key>
+			<string>77031A62-3DD0-4402-AC5A-F045352750AC</string>
+			<key>buttonlabel</key>
+			<string>Dates</string>
+			<key>itemuid</key>
+			<string>0229B7AA-04AB-4379-A30C-2B798A1F4D4D</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>snippet</key>
+				<string>The current time is {time}
+
+You can also have times in different formats...
+
+Short: {time:short}
+Medium: {time:medium}
+Long: {time:long}
+Full: {time:full}
+
+The default time format is short. Alfred uses the time formats specified in macOS 'Language &amp; Region' advanced preferences.</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.clipboardsnippet</string>
+			<key>buttoniconid</key>
+			<string>56F967B6-14EA-4AA3-92F2-4B806F723C53</string>
+			<key>buttonlabel</key>
+			<string>Times</string>
+			<key>itemuid</key>
+			<string>20056AE7-82B8-414E-9C8F-F90A035D6C72</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>snippet</key>
+				<string>The current clipboard contains '{clipboard}'
+
+You can format the clipboard in different ways too:
+
+Lower case: '{clipboard:lowercase}'
+
+Upper case: '{clipboard:uppercase}'
+
+Capital case: '{clipboard:capitals}'
+
+</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.clipboardsnippet</string>
+			<key>buttoniconid</key>
+			<string>4E2A9B5A-2662-473A-80BE-A144BDF82690</string>
+			<key>buttonlabel</key>
+			<string>Clipboard</string>
+			<key>itemuid</key>
+			<string>87A6E845-0114-47DC-A68F-3F58F53C715C</string>
+		</dict>
+		<dict>
+			<key>actionconfig</key>
+			<dict>
+				<key>snippet</key>
+				<string>Cheers,
+A Wonderful Alfred User
+</string>
+			</dict>
+			<key>actionuid</key>
+			<string>remote.alfred.clipboardsnippet</string>
+			<key>buttoniconid</key>
+			<string>9AFF068C-5EB7-44E4-990D-58761DA7966B</string>
+			<key>buttonlabel</key>
+			<string>Email Signature</string>
+			<key>itemuid</key>
+			<string>809636AD-4253-4EBB-83E0-D10D59822BBC</string>
+		</dict>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+		<dict/>
+	</array>
+	<key>subtitle</key>
+	<string>Paste your Snippets</string>
+	<key>title</key>
+	<string>Clipboard Snippets</string>
+</dict>
+</plist>
