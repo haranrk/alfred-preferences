@@ -17,6 +17,8 @@
 <li>download attachments via this workflow</li>
 <li>show favicons of the websites</li>
 <li>auto update</li>
+<li>auto Bitwarden sync in the background</li>
+<li>auto lock on startup and after customizable idle time</li>
 <li>uses the <a href="https://pkg.go.dev/github.com/deanishe/awgo?tab=doc">awgo</a> framework/library</li>
 <li>many customizations possible</li>
 </ul>
@@ -67,6 +69,40 @@ The best is to append it to the existing string and separate it by a colon (:)</
 <p>You can change the search-/filtermode yourself easily. This gif shows the 3 steps which need to be done for it:
 <img src="./assets/change-filter-mode.gif" alt="Change filter mode" /></p>
 
+<h2>Enable auto background sync</h2>
+
+<p>In version 2.3.0 the background sync mechanism was added.<br>
+It is using the macOS user LaunchAgent.</p>
+
+<p>To install the sync configure the workflow variables:</p>
+
+<ul>
+<li><code>AUTOSYNC_TIMES</code>, this can be used to configure comma separated multiple sync times per day, e.g. <code>8:15,23:45</code></li>
+<li>alternatively you can use <code>AUTO_HOUR</code> together with <code>AUTO_MIN</code> for only one sync time</li>
+</ul>
+
+<p>Bitwarden needs to be unlocked for sync to work.</p>
+
+<p>Install via Alfred keyword: <code>.bwauto</code></p>
+
+<h2>Enable auto lock</h2>
+
+<p>In version 2.3.0 the background lock and lock on startup mechanism was added.<br>
+It is using the macOS user LaunchAgent.</p>
+
+<p>To install the sync configure the workflow variables:</p>
+
+<ul>
+<li><code>LOCK_TIMEOUT</code> set to a time in minutes after which the workflow should be locked if it hasn&rsquo;t been used in the meantime</li>
+</ul>
+
+<p>The LaunchAgent checks every 5 minutes if the lock timeout has been reached.</p>
+
+<p>The LaunchAgent checks also on load (e.g. startup of the system and login of the user),<br>
+if the startup happened within the last 5 minutes, if so then it locks the Bitwarden workflow.</p>
+
+<p>Install via Alfred keyword: <code>.bwautolock</code></p>
+
 <h2>Advanced Features / Configuration</h2>
 
 <ul>
@@ -93,6 +129,24 @@ The best is to append it to the existing string and separate it by a colon (:)</
 <td>2FA_NODE</td>
 <td>sets the mode for the 2FA (can be set via .bwconfig ), 0 app, 1, email (not tested), 2 duo (not tested), 3 yubikey (not tested), 4 U2F (not tested)</td>
 <td>0</td>
+</tr>
+
+<tr>
+<td>AUTO_HOUR</td>
+<td>sets the hour for the backround sync to run (is installed separately with .bwauto)</td>
+<td>10</td>
+</tr>
+
+<tr>
+<td>AUTO_MIN</td>
+<td>sets the minute for the backround sync to run (is installed separately with .bwauto)</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>AUTOSYNC_TIMES</td>
+<td>sets multiple times when bitwarden should sync with the server, this is used first and instead of AUTO_MIN and AUTO_HOUR</td>
+<td>8:15,23:45</td>
 </tr>
 
 <tr>
@@ -132,15 +186,21 @@ The best is to append it to the existing string and separate it by a colon (:)</
 </tr>
 
 <tr>
-<td>bwconf_keyword</td>
-<td>defines the keyword which opens the Bitwarden configuration/settings of the Alfred Workflow</td>
-<td>.bwconfig</td>
+<td>bwauto_keyword</td>
+<td>defines the keyword which opens the Bitwarden background sync agent</td>
+<td>.bwauto</td>
 </tr>
 
 <tr>
-<td>CACHE_AGE</td>
-<td>This defines how old the cached items can get, if expired the Workflow will trigger a new cache refresh with Bitwarden (this does not involve a sync with the Bitwarden server, values lower than 30 will be ignored and set to 30)</td>
-<td>0 (0 means disabled; unit is minutes)</td>
+<td>bwautolock_keyword</td>
+<td>defines the keyword which opens the Bitwarden background lock agent</td>
+<td>.bwautolock</td>
+</tr>
+
+<tr>
+<td>bwconf_keyword</td>
+<td>defines the keyword which opens the Bitwarden configuration/settings of the Alfred Workflow</td>
+<td>.bwconfig</td>
 </tr>
 
 <tr>
@@ -171,6 +231,12 @@ The best is to append it to the existing string and separate it by a colon (:)</
 <td>ICON_CACHE_AGE</td>
 <td>This defines how old the icon cache can get in minutes, if expired the Workflow will download icons again. If icons are missing the workflow will also try to download them unrelated to this timeout</td>
 <td>43200 (1 month)</td>
+</tr>
+
+<tr>
+<td>LOCK_TIMEOUT</td>
+<td>Besides the lock on startup this additional timeout is set to define when Bitwarden should be locked in case of no usage.</td>
+<td>1440 (1 day)</td>
 </tr>
 
 <tr>
@@ -260,12 +326,18 @@ The best is to append it to the existing string and separate it by a colon (:)</
 <tr>
 <td>SYNC_CACHE_AGE</td>
 <td>This defines how old the sync cache can get, if expired the Workflow will trigger a new sync with Bitwarden (values lower than 30 will be ignored and set to 30)</td>
-<td>0 (0 means disabled; unit is minutes)</td>
+<td>10080 (0 means disabled; unit is minutes)</td>
 </tr>
 
 <tr>
 <td>TITLE_WITH_USER</td>
 <td>If enabled the name of the login user item or the last 4 numbers of the card number will be appended (added) at the end of the name of the item</td>
+<td>true</td>
+</tr>
+
+<tr>
+<td>TITLE_WITH_URLS</td>
+<td>If enabled all the URLs for an login item will be appended (added) at the end of the name of the item</td>
 <td>true</td>
 </tr>
 </tbody>
@@ -328,19 +400,19 @@ The best is to append it to the existing string and separate it by a colon (:)</
 </tr>
 </tbody>
 </table>
-<p>You can place per type one <code>action name</code> into the ACTION config, a combination is possible where it is not overlapping with <code>more</code> or another of the same type.</p>
+<p>You can place per type <em>one</em> <code>action name</code> into the ACTION config, a combination is possible where it is <em>not</em> overlapping with <code>more</code> or another of the same type.</p>
 
-<p>Good examples:</p>
+<p><strong>Good examples:</strong></p>
 
-<p>NO_MODIFIER_ACTION=url,code
-MODIFIER_1_ACTION=totp
-MODIFIER_2_ACTION=more
-MODIFIER_3_ACTION=password,card</p>
+<p>NO_MODIFIER_ACTION=url,code<br>
+MODIFIER_1_ACTION=totp<br>
+MODIFIER_2_ACTION=more<br>
+MODIFIER_3_ACTION=password,card (2 items listed but of different <em>type</em>)</p>
 
-<p>Bad examples:</p>
+<p><strong>Bad examples:</strong></p>
 
-<p>NO_MODIFIER_ACTION=url,password
-MODIFIER_3_ACTION=code,card</p>
+<p>NO_MODIFIER_ACTION=url,password<br>
+MODIFIER_3_ACTION=code,card (2 items listed but of the same <em>type</em>, therefore this is not permitted and will cause problems)</p>
 
 <h1>Develop locally</h1>
 
