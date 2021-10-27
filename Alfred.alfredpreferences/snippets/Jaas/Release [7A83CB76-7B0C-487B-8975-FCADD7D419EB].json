@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "release-{date:yyyyMMdd}",
+    "uid" : "7A83CB76-7B0C-487B-8975-FCADD7D419EB",
+    "name" : "Release",
+    "keyword" : "rel"
+  }
+}
