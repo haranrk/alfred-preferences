@@ -71,19 +71,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>56419563-8603-4FF1-AF09-679ED8513E7E</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>DF3A17F0-109C-498C-953A-1EA26ABBE2E2</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>5E2199C2-314D-447F-BA91-52B1AC449F40</key>
 		<array>
 			<dict>
@@ -264,37 +251,6 @@
 	<string>Pocket for Alfred</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>2</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>0</integer>
-				<key>hotmod</key>
-				<integer>524288</integer>
-				<key>hotstring</key>
-				<string>A</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>56419563-8603-4FF1-AF09-679ED8513E7E</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -835,15 +791,6 @@
 			<integer>100</integer>
 			<key>ypos</key>
 			<integer>670</integer>
-		</dict>
-		<key>56419563-8603-4FF1-AF09-679ED8513E7E</key>
-		<dict>
-			<key>note</key>
-			<string>Hotkey for adding a link</string>
-			<key>xpos</key>
-			<integer>100</integer>
-			<key>ypos</key>
-			<integer>30</integer>
 		</dict>
 		<key>5E2199C2-314D-447F-BA91-52B1AC449F40</key>
 		<dict>
