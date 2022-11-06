@@ -101,7 +101,31 @@
 				<key>runningsubtext</key>
 				<string>Finding two-factor authentication codes...</string>
 				<key>script</key>
-				<string>/usr/local/bin/php find-messages.php $look_back_minutes</string>
+				<string>#!/bin/bash
+
+php_exec=""
+
+for f in php /usr/local/bin/php /opt/local/bin/php /opt/homebrew/bin/php /usr/bin/php; do
+    if test -x $f; then
+        php_exec=$f
+    fi
+done
+
+if test -z "$php_exec"; then
+	cat &lt;&lt;- EOB
+		{"items": [
+			{
+				"arg": "https://brew.sh",
+				"title": "ERROR: PHP is not installed on your system",
+				"subtitle": "Please install php. We recommend using Homebrew: https://brew.sh",
+				"valid": true
+			}
+		]}
+	EOB
+else
+	$php_exec find-messages.php $look_back_minutes
+fi
+</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -111,7 +135,7 @@
 				<key>title</key>
 				<string>iMessage 2FA</string>
 				<key>type</key>
-				<integer>5</integer>
+				<integer>0</integer>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -227,6 +251,14 @@
 	<key>readme</key>
 	<string>Find two-factor authentication codes in your recent iMessage messages.
 
+## Requirements
+
+* `php` must be installed on your system
+  * macOS Monterey **does not** have `php` preinstalled!
+* We recommend using [Homebrew](https://brew.sh) to install `php`
+  * To install Homebrew, follow the instructions on the "Install Homebrew" section of the [Homebrew website](https://brew.sh)
+  * Once you have installed Homebrew, install `php` by running `brew install php`
+
 ## Configuration
 
 * By default, only messages received in the past 15 minutes will be searched
@@ -303,7 +335,7 @@ Select a 2FA code and do one of the following:
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.2.6</string>
+	<string>1.2.8</string>
 	<key>webaddress</key>
 	<string>https://github.com/squatto/alfred-imessage-2fa/</string>
 </dict>
